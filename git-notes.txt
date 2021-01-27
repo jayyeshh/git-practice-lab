@@ -1,3 +1,7 @@
+Pending: 
+12/8
+
+
 commands: 
 - git log
 - git show
@@ -106,3 +110,25 @@ or
 - deleting release will not delete that tag.
 //creating new release tag.
 - tags created with github interface are lightweight tags.
+
+//Comparing Changes:
+    - tags & commit against each other or branches.
+    - HEAD@{3}
+    - HEAD^
+    - tagname 
+    - branchname@{3days}
+    - master@{2015-08-23}
+
+//Sync forked repo with original repo:
+cannot be done from git directly, local repo used as intermediate repo.
+- First upstream remote to original branch.
+    $git remote add upstream <repo url http/ssh>
+- then pull from upstream remote.
+    $git pull upstream master
+- & push back new changes to forked remote repo.
+    $git push origin master
+
+//Collaborators.
+//Creating/Opening/Closing issues & milestones.
+//close issue with push, by mentioning issue # in commit message.
+    $git commit -m "minor bug fixed, close #4"
