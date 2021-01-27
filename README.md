@@ -1,2 +1,2 @@
-# git-testing
-git testing repo for practice
+# Git Practice Lab
+Practice files of Git Course

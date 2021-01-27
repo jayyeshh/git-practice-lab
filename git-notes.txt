@@ -10,6 +10,7 @@ commands:
 - git checkout -- <filename> //undo changes, get back to last commit snapshot for specified fle.
 - git config --global alias.hist "log --oneline --graph --decorate --all"  //registering custom commands
 - git config --global --list //list used created commands.
+- git config --global -e //to open configs in editor
 - git <custom cmd> -- <parameters to pass to underlined cmd>
 - git rm or git mv will staged the changes directly.
 - git add -u //will pick & stage deletions.
