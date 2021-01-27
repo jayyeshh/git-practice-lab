@@ -1,0 +1,107 @@
+commands: 
+- git log
+- git show
+- git ls-files //list tracked files
+- git config --global core.editor "vim"
+- export GIT_EDITOR=vim
+- git commit -am //commit modified files directly without adding them to staging area
+- git commit --amend //commit current changes to previous commit.
+- git reset HEAD <filename> //reset last git changes to specific file, used for unstaging a stages file.
+- git checkout -- <filename> //undo changes, get back to last commit snapshot for specified fle.
+- git config --global alias.hist "log --oneline --graph --decorate --all"  //registering custom commands
+- git config --global --list //list used created commands.
+- git <custom cmd> -- <parameters to pass to underlined cmd>
+- git rm or git mv will staged the changes directly.
+- git add -u //will pick & stage deletions.
+- git add -A //will pick & stage all type of modifications.
+
+// -u & -A are used when changes made with OS commands instead of git commands. (i.e. `mv` instead of `git mv`)
+
+- control+w HJKL to switch windows in vim.
+- control+w v to open new window in vim.
+
+- git diff
+//configuring difftool in git:
+add this to ~/.gitconfig
+```
+[diff]
+    tool = vimdiff
+``` 
+or 
+- git config --global diff.tool vimdiff3
+//setting up mergetool
+- git config --global merge.tool meld
+
+
+- Types of git-merge: 
+    fast-forward, automatic, Manutal (in case of merge conflict)
+
+- HEAD : points to Last Commit of Current Branch.Can be moved in some cases.
+
+- git branch
+- git checkout -b <branchname> //create and switch to new branch.
+- git merge <branchname> 
+- git branch -d <branchname> //delete a branch
+
+//lightweighted & annoted tags:
+- git tag <tagname>
+- git tag --list
+- git tag -d <tagname> //to delete tag
+- git tag -a <tagname> -m "tag message here"
+- git show <tagname>
+
+//git Stash:
+- git stash 
+- git stash list
+- git stash pop //apply and drop stash
+
+//git reset: 
+- git reset <commit hash> --soft 
+- git reset <commit hash> --mixed //default
+- git reset <commit hash> --hard //most destructive, clear working and staging area completely & move head to specified head.
+- git reflog //shows all the actions. Can get back to specific commit. Useful if git reset --hard reset some useful changes.
+
+--soft: uncommit changes, changes are left staged (index).
+--mixed (default): uncommit + unstage changes, changes are left in working tree.
+--hard: uncommit + unstage + delete changes, nothing left.
+
+- git remote -v //to check remote connections.
+- git remote add origin <repo url>
+- git push -u origin master --tags
+
+//setting up SSH keys:
+- ssh-keygen -t rsa -C "email addr"
+- ssh -T git@github.com //to confirm ssh authentication.
+- git clone repoURL <folder name for local copy of repo>
+- git fetch
+- git pull //fetch + merge , only fetch current branch.
+- git pull --all //update all branches.
+
+//updating the references:
+- git remote set-url origin <repo-url>
+- git remote show origin
+- git push -u origin <branch name>
+- git branch -a //list all branches.
+- git branch -r //list remote branches.
+- git fetch -p //prune branches, rm branches which have been merged.
+- git push origin :<branch name> //to delete branch from remote, it'll also update locally.
+- git pull --rebase //fetch changes from remote & add local changes on top of that, so rebase will result in one commit ahead of remote branch.
+
+//setting up default branch
+//Github graphs
+//pull conflict
+
+=> tags in git:
+- git tag <tag name> <branch/ref. name>
+//by default `git push` will not push tags to remote repo. 
+- git push origin <tag name> //to push tag to remote repo.
+- git push --tags //to push all tags to remote repo.
+- git fetch -p //to remove tags which are deleted on github.
+- git tag -d <tag name> //delete tag
+- git push origin :<tag name> //update remote after deleting tag locally.
+- git tag -f <tag name> <commit hash> //modify tag reference.
+- git push --force origin <tag name> //forcefully update tag on remote repo.
+//adding Release Note.
+- deleting release will not delete that tag.
+//creating new release tag.
+- tags created with github interface are lightweight tags.
