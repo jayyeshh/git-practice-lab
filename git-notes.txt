@@ -1,6 +1,4 @@
-Pending: 
-12/8
-
+Pending: 12/8
 
 commands: 
 - git log
@@ -128,7 +126,31 @@ cannot be done from git directly, local repo used as intermediate repo.
 - & push back new changes to forked remote repo.
     $git push origin master
 
-//Collaborators.
-//Creating/Opening/Closing issues & milestones.
-//close issue with push, by mentioning issue # in commit message.
+- Collaborators.
+- Creating/Opening/Closing issues & milestones.
+- close issue with push, by mentioning issue # in commit message.
     $git commit -m "minor bug fixed, close #4"
+//add reference of commits to the issue: comment in commits & mention the issue in that comment.
+
+- Creating, Cloning, Updating, Deleting Gist.
+
+- Github Organization
+    - Creating
+    - Creating Team on org.
+    - Team Permissions & Team Repos.
+    - Transferring ownership of old repo to new organization.
+    - Forking repos from organization.
+    - Add organization repo as upstream remote on local system.
+      $git remote add upstream <ssh link of org. repo>
+      $git fetch upstream
+      $ git fetch --all 
+- if git have two or more branches with same name(maybe on different remotes, i.e. org. & individual), then git checkout <branch name> will return pathspec error, coz git try to find a file with name <branch name> when it does not find anything in that case it check local & remote branches with <branch name> but if only one branch name match with <branch name> then git will checkout the branch, if there are more than one branch then git is not smart enought to know which branch to switch to so it'll return pathspec error saying "branch does not exist".
+for example: if we have two branches on remote org. & individual remote with same name `shared`.
+    $git remote -v
+    ...
+    remotes/upstream/shared
+    remotes/origin/shared
+    //here upstream is org. remote.
+
+    $git checkout -b shared origin/shared
+    //here we are setting up new branch which will track existing branch.
