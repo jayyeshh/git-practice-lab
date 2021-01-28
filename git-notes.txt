@@ -154,3 +154,58 @@ for example: if we have two branches on remote org. & individual remote with sam
 
     $git checkout -b shared origin/shared
     //here we are setting up new branch which will track existing branch.
+
+- git rebase -i --root
+
+//git clean: will clear working area(untracked files).
+- Use --dry-run flag to see what will be deleted,
+    -f flag to do the deletion.
+    -d flag will show directories.
+  $git clean --dry-run
+  $git clean -d --dry-run //files & directories to be deleted.
+  $git clean -d -f  //rm file & dirs.
+
+//git reset
+default: git reset --mixed
+git checkout moves the head but branch stays where is was, where git reset moves the head & branch ref. both.
+=> for commits: 
+    -> moves the HEAD  pointer, optionally modifies files.
+=> For file paths:
+    -> Does not move the HEAD pointer, modifies files.
+
+$git reset --soft HEAD~
+    //only moves the HEAD pointer.
+$git reset --mixed HEAD~
+    //moves the HEAD & also copies files from the commit to staging area.
+$git reset --hard HEAD~
+    //moves the HEAD, copies the files from the commit to staging area & also to working area.(destructive operation)
+$git reset <commit> -- <file> //cannot specify other flags, its mixed by default, only changes staging area.
+//to undo reset with ORIG_HEAD
+$git reset ORIG_HEAD
+
+- use ORIG_HEAD to undo merge:
+    $git reset --merge ORIG_HEAD
+    --merge flag to preserve any uncommitted changes.
+
+- git keeps commits around 2 weeks.
+- In case of rebase or any other case where history is lost, to recover use `git reflog`.
+    $git reflog
+    HEAD@{2} means "the value of head 2 moves ago"
+
+//Git Revert:
+Creates a new commit that introduces the opposite changes from the specific commit.
+the original commit stays in repo.
+Revert does not changes history.
+$git revert <commit hash>
+    //it'll create a commit mirror opposite of specified commit.
+
+--autosquash & --fixup:
+$git commit --fixup <commit sha>
+$git rebase -i --autosquash master
+$git config --global rebase.autosquash true
+$git commit --fixup :/second //fixup the commit which have commit msg with `second` word in it.
+
+git lg: 
+> git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+git hist: 
+> log --oneline --graph --decorate --all
