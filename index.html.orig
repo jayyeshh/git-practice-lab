@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+<<<<<<< HEAD
+    <h1>Git Course</h1>
+    <h2>Test 101</h2>
+=======
     <h1>Git Course Practice</h1>
+>>>>>>> f39f23d728a4dccea3d505cf793961adb901cb3b
     <script src="./script.js"></script>
 </body>
 </html>
