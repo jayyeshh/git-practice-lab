@@ -1,5 +1,3 @@
-Pending: 12/8
-
 commands: 
 - git log
 - git show
@@ -15,8 +13,8 @@ commands:
 - git config --global -e //to open configs in editor
 - git <custom cmd> -- <parameters to pass to underlined cmd>
 - git rm or git mv will staged the changes directly.
-- git add -u //will pick & stage deletions.
-- git add -A //will pick & stage all type of modifications.
+- git add -u //will pick & stage deletions(deleted using OS commands not git cmnds).
+- git add -A //will pick & stage all type of modifications(modifications made via OS cmnds not git cmnds).
 
 // -u & -A are used when changes made with OS commands instead of git commands. (i.e. `mv` instead of `git mv`)
 
@@ -28,7 +26,7 @@ commands:
 add this to ~/.gitconfig
 ```
 [diff]
-    tool = vimdiff
+    tool = vimdiff3
 ``` 
 or 
 - git config --global diff.tool vimdiff3
@@ -37,7 +35,7 @@ or
 
 
 - Types of git-merge: 
-    fast-forward, automatic, Manutal (in case of merge conflict)
+    fast-forward, automatic, Manual (in case of merge conflict)
 
 - HEAD : points to Last Commit of Current Branch.Can be moved in some cases.
 

@@ -13,7 +13,7 @@ function cmp(m1,m2){
     // console.log(m1,m2);
     let found=true;
     m1.forEach((v,k)=>{
-        if(!m2.has(k) || m2.get(k)!==v){
+        if(!m2.has(k) || m2.get(k)<v){
             found=false;
             return;
         }
@@ -39,7 +39,7 @@ while(l<arr[0].length && !found){
     for(let i=0;i<arr[0].length-l;i++){
         let curr=arr[0].substr(i,l);
         let m2=createMap(curr);
-        if(cmp(m1,m2) && cmp2(arr[1],curr)){
+        if(cmp(m1,m2)){
             found=true;
             console.log(curr);
             break;
